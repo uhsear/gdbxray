@@ -252,3 +252,4 @@ Other single-file tools in this portfolio that pair with this one:
 
 - [arcade-rule-deploy](https://github.com/uhsear/arcade-rule-deploy) - deploy attribute rules once you can read the ones already there
 - [fcload](https://github.com/uhsear/fcload) - load into that geodatabase without corrupting it
+- [arcadecheck](https://github.com/uhsear/arcadecheck) - rate the attribute rules this prints for portability
