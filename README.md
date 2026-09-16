@@ -245,3 +245,10 @@ Built by [Asir Khan](https://www.linkedin.com/in/asir-khan-310317264/).
 ## License
 
 MIT.
+
+## Related
+
+Other single-file tools in this portfolio that pair with this one:
+
+- [arcade-rule-deploy](https://github.com/uhsear/arcade-rule-deploy) - deploy attribute rules once you can read the ones already there
+- [fcload](https://github.com/uhsear/fcload) - load into that geodatabase without corrupting it
