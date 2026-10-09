@@ -53,6 +53,7 @@ PASS  the token is gone from the masked expression  <-- pinned defect
 PASS  an unknown item type lands in UNRECOGNISED, it does not vanish  <-- pinned defect
 PASS  and the token in the third rule is NOT printed  <-- pinned defect
 PASS  and the token is not in the json either  <-- pinned defect
+PASS  a unique prefix of --apply (--ap) is refused, not read as --apply  <-- pinned defect
 PASS  check() and raises() really do record a failure  <-- pinned defect
 PASS  a geodatabase with no GDB_ItemRelationships reads as no rows, not as a failure  <-- pinned defect
 PASS  --out without --apply writes NOTHING  <-- pinned defect
@@ -60,10 +61,10 @@ PASS  and the token is not in the file either  <-- pinned defect
 PASS  a path that does not exist is a usage error  <-- pinned defect
 PASS  the self-test leaves no temporary directory behind  <-- pinned defect
 --------------------------------------------------------------------
-300 assertions, 0 failed
+301 assertions, 0 failed
 ```
 
-Those twenty-one lines are a selection. The run prints 300.
+Those twenty-two lines are a selection. The run prints 301.
 
 ## Requirements
 
@@ -220,8 +221,8 @@ says so, rather than reporting nothing and looking clean.
 
 ## Verification
 
-`--self-test` runs 300 assertions. It needs no GDAL, no geodatabase, no network and no database,
-and it produces the same 300 on Windows and on Linux.
+`--self-test` runs 301 assertions. It needs no GDAL, no geodatabase, no network and no database,
+and it produces the same 301 on Windows and on Linux.
 
 The parsers work from real `Definition` XML copied out of a geodatabase built with `arcpy`, with
 the spatial reference and extent blocks cut out. The OGR reader is driven through a stub that

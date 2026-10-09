@@ -1565,6 +1565,20 @@ def self_test():
     check(_parse(["a.gdb", "--apply"]).apply is True, "--apply is read")
     check(_parse(["a.gdb", "--show-secrets"]).show_secrets is True,
           "--show-secrets is read")
+    # A unique prefix of --apply must not write. argparse would accept --ap as
+    # --apply by default, so the refusal below is what keeps --ap from writing.
+    prefix_refused = []
+
+    def _try_write_prefix():
+        try:
+            _parse(["a.gdb", "--out", "o.json", "--ap"])
+        except SystemExit:
+            prefix_refused.append(True)
+
+    capture(_try_write_prefix)
+    check(prefix_refused == [True],
+          "a unique prefix of --apply (--ap) is refused, not read as --apply"
+          "  <-- pinned defect")
 
     # ---- printing a schema the console cannot encode
     # A county geodatabase carries degree signs in descriptions and
@@ -1829,6 +1843,7 @@ def emit(text, stream=None):
 def _parse(argv):
     ap = argparse.ArgumentParser(
         prog="gdbxray.py",
+        allow_abbrev=False,
         description="Print the File Geodatabase schema ogrinfo will not show "
                     "you: subtypes, attribute rules and attachment linkage.",
         epilog="Nothing is written without --apply, and credentials found in "
